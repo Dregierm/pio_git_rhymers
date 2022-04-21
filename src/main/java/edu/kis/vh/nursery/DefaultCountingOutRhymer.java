@@ -4,9 +4,17 @@ public class DefaultCountingOutRhymer {
 
 	private static final int SIZE = 12;
 	private static final int CHECK = -1;
-	private final int[] numbers = new int[SIZE];
+	private final int[] numbers = new int[getSIZE()];
 
-	private int total = CHECK;
+	private int total = getCHECK();
+
+	public static int getSIZE() {
+		return SIZE;
+	}
+
+	public static int getCHECK() {
+		return CHECK;
+	}
 
 	public int getTotal() {
 		return total;
@@ -14,27 +22,35 @@ public class DefaultCountingOutRhymer {
 
 	public void countIn(int in) {
 		if (!isFull())
-			numbers[++total] = in;
+			getNumbers()[setTotal(getTotal() + 1)] = in;
 	}
 
 		public boolean callCheck() {
-			return total == CHECK;
+			return getTotal() == getCHECK();
 		}
 		
 			public boolean isFull() {
-				return total == 11;
+				return getTotal() == 11;
 			}
 		
 				protected int peekaboo() {
 					if (callCheck())
-						return CHECK;
-					return numbers[total];
+						return getCHECK();
+					return getNumbers()[getTotal()];
 				}
 			
 					public int countOut() {
 						if (callCheck())
-							return CHECK;
-						return numbers[total--];
+							return getCHECK();
+						return getNumbers()[setTotal(getTotal() - 1)];
 					}
 
+	public int[] getNumbers() {
+		return numbers;
+	}
+
+	public int setTotal(int total) {
+		this.total = total;
+		return total;
+	}
 }
