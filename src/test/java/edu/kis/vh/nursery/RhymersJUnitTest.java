@@ -5,6 +5,7 @@ import org.junit.Test;
 
 //Wszystkie testy zostaly zaliczone
 public class RhymersJUnitTest {
+	// TODO: Klasa jest zbyt dluga, rozbic ja na mniejsze 
 
 	@Test
 	public void testCountIn() {
