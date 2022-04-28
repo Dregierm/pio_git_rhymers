@@ -42,7 +42,10 @@ public class DefaultCountingOutRhymer {
 					public int countOut() {
 						if (callCheck())
 							return getCHECK();
-						return getNumbers()[setTotal(getTotal() - 1)];
+
+						int res =  getNumbers()[getTotal()];
+						setTotal(getTotal() - 1);
+						return res;
 					}
 
 	public int[] getNumbers() {
